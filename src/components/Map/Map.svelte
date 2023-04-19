@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
-	import { geoData } from '../../utils/getGeoData';
+	import { fetchData } from '../../utils/getGeoData';
 	/**
 	 * @type {HTMLDivElement}
 	 */
@@ -25,7 +25,7 @@
 				// @ts-ignore
 				.addTo(map);
 			// @ts-ignore
-			leaflet.geoJSON(geoData).addTo(map);
+			leaflet.geoJSON(await fetchData()).addTo(map);
 		}
 	});
 

@@ -11,6 +11,27 @@ npm run dev
 npm run dev -- --open
 ```
 
+## Api Rest
+
+To be able to fech the data from the back.
+
+clone this repository and follow the steps:
+
+```bash
+npm install
+
+npm start
+# By default if you dont have the .env file you will not get any debug log in your console. And the app will try to start the server on PORT 4001.
+
+#CORS Error may be shown if you dont set it up too.
+.env file on your root project:
+
+DEBUG=EarthPulse:*
+PORT=3001
+CORS_ALLOWED_ORIGIN_LOCAL=http://localhost:5173
+
+```
+
 ## Building
 
 To create a production version of the project:
