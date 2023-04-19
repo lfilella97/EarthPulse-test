@@ -22,7 +22,9 @@
 					attribution:
 						'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				})
+				// @ts-ignore
 				.addTo(map);
+			// @ts-ignore
 			leaflet.geoJSON(geoData).addTo(map);
 		}
 	});
