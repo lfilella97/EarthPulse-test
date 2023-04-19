@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
-
+	import { geoData } from '../../utils/getGeoData';
 	/**
 	 * @type {HTMLDivElement}
 	 */
@@ -15,7 +15,7 @@
 		if (browser) {
 			const leaflet = await import('leaflet');
 
-			map = leaflet.map(mapElement).setView([51.505, -0.09], 13);
+			map = leaflet.map(mapElement).setView([41.40856543129339, 2.1299572085542677], 15);
 
 			leaflet
 				.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -23,12 +23,7 @@
 						'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				})
 				.addTo(map);
-
-			leaflet
-				.marker([51.5, -0.09])
-				.addTo(map)
-				.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-				.openPopup();
+			leaflet.geoJSON(geoData).addTo(map);
 		}
 	});
 
